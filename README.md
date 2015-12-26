@@ -17,29 +17,33 @@
 - Trên một node
 
 ##### Bước 1:
-- Chuẩn bị một máy Ubuntu 14.04 Server 64 bit với cấu hình
+- Chuẩn bị một máy Ubuntu 14.04 Server 64 bit, Hoặc Fedora 23 64 bit với cấu hình
 ```sh
 Cấu hình tối thiểu
  - RAM 4GB
  - HDD:60GB
  - NIC: 01: 192.168.1.0/24
 
-Phiên bản hệ điều hành: Ubuntu Server 14.04 64 bit
+Phiên bản hệ điều hành: Ubuntu Server 14.04 64 bit, Hoặc Fedora 23 64 bit 
  
 ```
 
-- Đăng nhập bằng tài khoản root và thực hiện các lệnh sau để update bản mới nhất 
+- Đăng nhập bằng tài khoản root và thực hiện các lệnh sau để update bản mới nhất
+Với Ubuntu Server
 ```sh
 apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y && init 6
 ```
 
+Với Fedora Server
+```sh
+dnf update -y
+```
 ##### Bước 2:
 - Đăng nhập vào OS với tài khoản root.
 - Tạo và gán cấu hình sudo cho user `stack`
 ```sh
 adduser stack
-apt-get -y install sudo 
-apt-get -y install git
+dnf -y install sudo git
 echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ```
