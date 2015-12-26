@@ -29,6 +29,7 @@ Phiên bản hệ điều hành: Ubuntu Server 14.04 64 bit, Hoặc Fedora 23 64
 ```
 
 - Đăng nhập bằng tài khoản root và thực hiện các lệnh sau để update bản mới nhất
+
 Với Ubuntu Server
 ```sh
 apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y && init 6
@@ -69,7 +70,7 @@ git clone -b stable/liberty https://github.com/openstack-dev/devstack.git
 - Trong ví dụ này chúng tôi sử dụng dải mạng 192.168.1.0/24 cho dải EXTERNAL
 - Di chuyển vào thư mục `devstack`
 ```sh
-cd /devstack/
+cd /home/stack/devstack/
 ```
 
 -Tạo file local.conf với nội dung mẫu như sau, lưu ý tùy vào tình huống mà có thể sửa file này cho phù hợp.
@@ -148,6 +149,15 @@ enable_service n-cauth
 ```sh
 ./stack.sh
 ```
+Nếu trên Fedora gặp lỗi 
+```
+[ERROR] ./stack.sh:175 If you wish to run this script anyway run with FORCE=yes
+```
+Thì chạy lệnh:
+```sh
+FORCE=yes ./stack.sh
+```
+
 
 ##### Các chú ý khi khởi động lại devstack
 - Fix lỗi Cinder
